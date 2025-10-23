@@ -1,0 +1,79 @@
+<Window x:Class="JiScreenReco.FrameExtractionWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Extract Frames from Video"
+        Height="385" Width="400"
+        WindowStartupLocation="CenterOwner"
+        ResizeMode="NoResize"
+        Background="#f0f0f0">
+
+    <Grid Margin="15">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+
+        <TextBlock Text="Extract High-Quality Frames" 
+                   FontSize="16" 
+                   FontWeight="Bold" 
+                   Margin="0,0,0,15"
+                   HorizontalAlignment="Center"/>
+
+        <StackPanel Grid.Row="1">
+            <GroupBox Header="Extraction Options" Margin="0,0,0,10">
+                <StackPanel Margin="10">
+                    <RadioButton x:Name="rbAllFrames" 
+                                Content="Extract ALL frames (maximum quality)" 
+                                Margin="0,5"
+                                GroupName="ExtractionMode"/>
+
+                    <RadioButton x:Name="rbKeyFrames" 
+                                Content="Extract only KEY frames (I-frames - best quality)" 
+                                Margin="0,5"
+                                GroupName="ExtractionMode"
+                                IsChecked="True"/>
+
+                    <RadioButton x:Name="rbTimeInterval" 
+                                Content="Extract at time interval:" 
+                                Margin="0,5"
+                                GroupName="ExtractionMode"/>
+
+                    <StackPanel Margin="20,5" Orientation="Horizontal">
+                        <TextBox x:Name="txtInterval" 
+                                Text="2" 
+                                Width="40" 
+                                Margin="0,0,5,0"/>
+                        <TextBlock Text="seconds between frames" 
+                                  VerticalAlignment="Center"/>
+                    </StackPanel>
+                </StackPanel>
+            </GroupBox>
+
+            <GroupBox Header="Output Quality">
+                <StackPanel Margin="10">
+                    <TextBlock Text="Output format: PNG (lossless)" 
+                              FontWeight="Bold" 
+                              Margin="0,0,0,5"/>
+                    <TextBlock Text="Frames will be saved in: Pictures\JiScreenReco_Screenshots\" 
+                              FontSize="10" 
+                              Foreground="#666"/>
+                </StackPanel>
+            </GroupBox>
+        </StackPanel>
+
+        <StackPanel Grid.Row="2" Orientation="Horizontal" HorizontalAlignment="Right">
+            <Button Content="Cancel" 
+                    Width="80" 
+                    Height="30" 
+                    Margin="0,0,10,0"
+                    Click="Cancel_Click"/>
+            <Button Content="Extract Frames" 
+                    Width="100" 
+                    Height="30" 
+                    Background="#2196F3"
+                    Foreground="White"
+                    Click="Extract_Click"/>
+        </StackPanel>
+    </Grid>
+</Window>

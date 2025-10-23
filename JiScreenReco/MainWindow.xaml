@@ -1,0 +1,104 @@
+﻿<Window x:Class="JiScreenReco.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="JiScreenReco"
+        Height="69" Width="500"
+        WindowStyle="ToolWindow"
+        ResizeMode="NoResize"
+        Background="#2b2b2b"
+        Foreground="White"
+        WindowStartupLocation="CenterScreen"
+        Topmost="True">
+
+    <Grid Margin="8">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="Auto"/>
+            <ColumnDefinition Width="Auto"/>
+            <ColumnDefinition Width="Auto"/>
+            <ColumnDefinition Width="Auto"/>
+        </Grid.ColumnDefinitions>
+
+        <!-- Status Text -->
+        <TextBlock x:Name="statusText"
+                   Grid.Column="0"
+                   Text="Ready - Full Screen"
+                   VerticalAlignment="Center"
+                   HorizontalAlignment="Left"
+                   FontSize="11"
+                   Foreground="#cccccc"
+                   Margin="5,0"/>
+
+        <!-- Screen Mode Button -->
+        <Button x:Name="btnScreenMode"
+                Grid.Column="1"
+                Content="🖵"
+                Width="30"
+                Height="25"
+                Margin="3,0"
+                Click="BtnScreenMode_Click"
+                Background="#555555"
+                Foreground="White"
+                BorderThickness="0"
+                Cursor="Hand"
+                ToolTip="Change recording area"/>
+
+        <!-- Start Button -->
+        <Button x:Name="btnStart"
+                Grid.Column="2"
+                Content="▶"
+                Width="30"
+                Height="25"
+                Margin="3,0"
+                Click="BtnStart_Click"
+                Background="#4CAF50"
+                Foreground="White"
+                BorderThickness="0"
+                Cursor="Hand"
+                ToolTip="Start recording (F9)"/>
+
+        <!-- Stop Button -->
+        <Button x:Name="btnStop"
+                Grid.Column="3"
+                Content="⏹"
+                Width="30"
+                Height="25"
+                Margin="3,0"
+                Click="BtnStop_Click"
+                Background="#f44336"
+                Foreground="White"
+                BorderThickness="0"
+                Cursor="Hand"
+                IsEnabled="False"
+                ToolTip="Stop recording (F10)"/>
+
+        <!-- Screenshot Button -->
+        <Button x:Name="btnScreenshot"
+                Grid.Column="4"
+                Content="📷"
+                Width="30"
+                Height="25"
+                Margin="3,0"
+                Click="BtnScreenshot_Click"
+                Background="#2196F3"
+                Foreground="White"
+                BorderThickness="0"
+                Cursor="Hand"
+                ToolTip="Extract frames from video (F11)"/>
+
+        <!-- Countdown Overlay -->
+        <Border x:Name="countdownBorder"
+                Grid.ColumnSpan="5"
+                Background="#CC000000"
+                Visibility="Collapsed"
+                CornerRadius="2">
+            <TextBlock x:Name="countdownText"
+                       Text=""
+                       FontSize="14"
+                       FontWeight="Bold"
+                       Foreground="White"
+                       HorizontalAlignment="Center"
+                       VerticalAlignment="Center"/>
+        </Border>
+    </Grid>
+</Window>
